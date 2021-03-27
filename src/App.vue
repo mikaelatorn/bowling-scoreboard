@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Title text="Bowling calculator" />
+    <Title />
     <div class="content-container">
       <ScoreInput />
       <Board />

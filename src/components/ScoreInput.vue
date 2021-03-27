@@ -64,6 +64,9 @@ export default {
             visible: true,
           };
           this.isGameFinished = true;
+          setTimeout(() => {
+            this.alert.visible = false;
+          }, 5000);
         });
 
       if (this.currentRoll < 18 && score == 10) {
