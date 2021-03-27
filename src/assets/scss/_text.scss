@@ -1,0 +1,23 @@
+.title-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: $primary-color;
+  color: $white;
+  padding: 0 .5rem;
+  img {
+    width: 3.5rem;
+    margin-right: .5rem;
+    @media screen and (max-width: 450px) {
+      display: none;
+    }
+  }
+  .title-text {
+    h1 {
+      margin: .5rem 0 0;
+    }
+    p {
+      margin-top: 0;
+    }
+  }
+}

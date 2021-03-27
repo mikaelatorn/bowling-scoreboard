@@ -1,0 +1,9 @@
+.error {
+  display: inline-block;
+  background-color: $red;
+  color: $white;
+  font-weight: bold;
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}

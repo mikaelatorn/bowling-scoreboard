@@ -1,0 +1,35 @@
+.board {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 11pt;
+  .round-cell {
+    display: inline-block;
+    border: 1px solid $border-color;
+    min-width: 3.3rem;
+    height: 90px;
+    min-width: 60px;
+    @media screen and (max-width: 450px) {
+      width: 100% !important;
+    }
+    .round-title {
+      color: $white;
+      background-color: $primary-color;
+      padding: .3rem .5rem;
+    }
+    .round-scores {
+      display: flex;
+      justify-content: space-between;
+      .round-score-second,
+      .round-score-third {
+        border: 1px solid $border-color;
+      }
+    }
+    .round-score,
+    .round-total {
+      padding: .3rem;
+      min-width: 20px;
+      min-height: 30px;
+    }
+  }
+}

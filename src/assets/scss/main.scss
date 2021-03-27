@@ -1,0 +1,19 @@
+@import "_variables";
+@import "_button";
+@import "_board";
+@import "_alert";
+@import "_text";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $primary-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.content-container {
+  padding: 1.5rem 1rem;
+}
