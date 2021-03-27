@@ -1,4 +1,4 @@
-# get-accept-test-2
+# Bowling Scoreboard
 
 ## Project setup
 ```
