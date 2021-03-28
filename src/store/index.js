@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { checkScore, isSpare, isStrike } from "@/config/checkScore";
+import { checkScore, isSpare, isStrike } from "@/js/bowlingLogic";
 
 Vue.use(Vuex);
 

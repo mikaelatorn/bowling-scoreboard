@@ -11,6 +11,7 @@ function init() {
   rolls = [];
 }
 
+// iterate through current score/rolls and return the scoreboard
 function checkScore(rolls) {
   init();
   for (var i = 0; i < rolls.length; i++) {
@@ -21,6 +22,7 @@ function checkScore(rolls) {
   return scoreBoard;
 }
 
+// save the roll and check if the current frame is finished
 function roll(value) {
   storeRoll(value);
   if (isFrameFinished()) {
@@ -29,6 +31,7 @@ function roll(value) {
   }
 }
 
+// calculate score if new roll has been added, return total score
 function score() {
   if (calculated === false) {
     calculate();
@@ -36,6 +39,7 @@ function score() {
   return scored;
 }
 
+// calculate the score
 function calculate() {
   var score = 0;
 
@@ -43,12 +47,15 @@ function calculate() {
     const current = frames[i];
     const next = getIndex(frames, i + 1);
 
+    // if the value is a strike and we are not in the final frame 
     if (isStrike(current) && i !== 9) {
       if (isStrike(next) && i === 8) {
+        // if we are on the second to last frame, check the two first values in the last frame
         let nextFrameCopy = [...next];
         let secondToLastRoll = nextFrameCopy.slice(0, 2);
         score += sumIndexes(secondToLastRoll) + getIndex(current);
       } else if (isStrike(next)) {
+        // if the next frame is also a strike, add the score for the current frame with the two upcoming ones
         score += checkLastFrame(frames, i) + getIndex(next) + getIndex(current);
       } else {
         score += sumIndexes(next) + getIndex(current);
@@ -85,6 +92,8 @@ function isSpare(roll) {
   return roll[0] + roll[1] === 10;
 }
 
+// check how many rolls has been done for the current frame
+// add one extra roll on the last frame if a spare or second roll is a strike
 function isFrameFinished() {
   if (isLastFrame()) {
     if (isSpare(rolls) || isStrike([rolls[1]])) {

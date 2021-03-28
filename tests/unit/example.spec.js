@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 
 import Title from "@/components/Title.vue";
-import { roll, score, init } from "@/config/checkScore.js";
+import { roll, score, init } from "@/js/bowlingLogic.js";
 
 describe("Title.vue", () => {
   test("renders props.text when passed", () => {
