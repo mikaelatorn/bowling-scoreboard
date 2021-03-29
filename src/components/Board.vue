@@ -39,7 +39,7 @@ export default {
     getSetsFromRolls() {
       return this.$store.getters.getSetsFromRolls;
     },
-    ...mapState(["historicRolls", "score"]),
+    ...mapState(["score"]),
   },
 };
 </script>

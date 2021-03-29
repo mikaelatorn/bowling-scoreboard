@@ -55,25 +55,21 @@ export default {
       this.$store
         .dispatch("updateScore", score)
         .then(() => {
-          this.alert.visible = false;
+          this.hideAlert();
         })
         .catch((err) => {
-          this.alert = {
-            type: "error",
-            text: err,
-            visible: true,
-          };
+          this.showAlert("error", err);
           this.isGameFinished = true;
           setTimeout(() => {
-            this.alert.visible = false;
+            this.hideAlert();
           }, 5000);
         });
+      this.latestScore = score;
 
       if (this.currentRoll < 18 && score == 10) {
         this.latestScore = null;
         this.$store.dispatch("updateScore", null);
       }
-      this.latestScore = score;
     },
     isLastFrame(score) {
       return this.currentRoll > 18 && score == 10;
@@ -81,8 +77,18 @@ export default {
     startNewGame() {
       this.$store.dispatch("resetScore").then(() => {
         this.isGameFinished = false;
-        this.alert.visible = false;
+        this.hideAlert();
       });
+    },
+    showAlert(alertType, message) {
+      this.alert = {
+        type: alertType,
+        text: message,
+        visible: true,
+      };
+    },
+    hideAlert() {
+      this.alert.visible = false;
     },
   },
 };
